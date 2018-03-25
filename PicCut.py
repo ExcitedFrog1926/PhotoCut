@@ -1,6 +1,9 @@
+__author__ ='Jacob Zhou'
+
 from PIL import Image
 import os
 from scan_photo import getFileName
+
 #将图片填充为正方形
 def fill_image(image):
     width,height = image.size
@@ -36,6 +39,7 @@ def save_images(image_list):
         image.save('./result/Pic' + str(index) + '.png','PNG')
         print(str(index * 10) + '% done')
         index += 1
+
 
 if __name__ == '__main__':
     path= '.\\'
