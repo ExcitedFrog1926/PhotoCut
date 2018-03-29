@@ -1,3 +1,4 @@
+__author__='Jacob Zhou'
 #scan all photos in designated file
 import os
 import re
