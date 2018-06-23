@@ -3,7 +3,8 @@ __author__ = 'Jacob Zhou'
 from PIL import Image
 import os
 from scan_photo import getFileName
-
+import progressbar
+import time
 # 将图片填充为正方形
 
 
@@ -39,13 +40,14 @@ def cut_image(image):
 
 def save_images(image_list):
     index = 1
+    bar = progressbar.ProgressBar(max_value=9)
     # 检查目标文件是否存在
     if(os.path.isdir('result') == 0):
         os.mkdir('result')
     # 输出文件，并在控制台显示进度
     for image in image_list:
         image.save('./result/Pic' + str(index) + '.png', 'PNG')
-        print(str(index * 10) + '% done')
+        bar.update(index)
         index += 1
 
 
@@ -56,4 +58,3 @@ if __name__ == '__main__':
     image = fill_image(image)
     image_list = cut_image(image)
     save_images(image_list)
-    print('100% done')
